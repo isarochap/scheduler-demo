@@ -1,14 +1,27 @@
 #include <stdio.h>
 
 int main() {
-  int a[5];
-  int n;
+	int tarefas[5];
+	int iteracoes;
 
-  scanf("%d %d %d %d %d %d", &(a[0]), &(a[1]), &(a[2]), &(a[3]), &(a[4]), &n);
+	for (int i=0; i<5; i++) {
+		scanf("%d", &tarefas[i]);
+	}
+	scanf("%d", &iteracoes);
 
-  for (int i=0; i<n; i++) {
-    /* Imprime resultado da n-esima iteracao do scheduler */
-  }
+	for (int i=1; i<=iteracoes; i++) {
+		int fez = 0;
+		
+		for (int j=0; j<5; j++) {
+			if (tarefas[j] != 0 && i % tarefas[j] == 0) {
+				fez=1;
+				printf("%d", j);
+			}
+		}
+		
+		if (!fez) printf("-");
+		printf("\n");
+	}
 
-  return 0;
+	return 0;
 }
